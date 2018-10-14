@@ -1,0 +1,20 @@
+.smoke {
+    position: relative;
+    bottom: 0;
+    margin-top: -500px;
+    z-index: 99;
+    height: 530px;
+    overflow: hidden;
+}
+
+.video {
+    width: 100%;
+    height: auto;
+    opacity: .2;
+}
+
+@media (max-width: 1200px) {
+    .smoke {
+        visibility: hidden;
+    }
+}
