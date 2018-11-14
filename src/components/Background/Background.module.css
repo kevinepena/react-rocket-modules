@@ -26,13 +26,19 @@
 
 .nebula {
     composes: backgroundItems;
-    opacity: .15;
+    opacity: .25;
     background: transparent url(./nebula.png) repeat center;
     z-index: -1;
+    /* animation: nebgazing 100000s linear infinite; */
     /* composes: alphaanimation from './animation.css' */
 }
 
 @keyframes stargazing {
     from { background-position: 0 0;}
     to { background-position: -10000px 5000px;}
+}
+
+@keyframes nebgazing {
+    from { background-position: 0 0;}
+    to { background-position: -10000px 0px;}
 }

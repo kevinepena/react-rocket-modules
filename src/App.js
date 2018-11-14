@@ -1,45 +1,63 @@
+// src/App.js
 import React, { Component } from 'react';
-import Title from "./Title";
-import Grid from "./Grid";
-import Rocket from "./Rocket";
-import Smoke from "./Rocket/Smoke";
-import Background from "./Background";
-import facts from "./NASA_facts.json";
+import { Router, Route, Redirect } from "react-router-dom";
+import history from "./history";
+import NASA from "./pages/NASA";
+import Horoscope from "./pages/Horoscope";
+import './App.css';
+import Background from "./components/Background"
 
 
-//styles
-// import './App.scss';
-
-
-// import styles from "./App.css"
 
 class App extends Component {
 
-  state = {
-    facts
-  }
+
 
   constructor(props) {
     super(props);
-    this.updateClicked = this.updateClicked.bind(this);
+    this.getScroll = this.getScroll.bind(this);
   }
 
-  updateClicked(id) {
-    let stateCopy = Object.assign({}, this.state);
-    stateCopy.facts[id].clicked = true;
-    this.setState({ stateCopy });
+  componentDidMount() {
+    window.addEventListener('scroll', this.getScroll);
   }
+
+  getScroll() {
+    const scrolly = window.scrollY;
+
+    if (scrolly > 0) {
+      this.setState({ nav: true })
+    } else if (scrolly === 0) {
+      this.setState({ nav: false })
+    }
+  }
+
 
   render() {
     return (
-      <div className="App">
-        <Title />
-        <Grid facts={this.state.facts} updateClicked={this.updateClicked} />
-        <Rocket />
-        <Smoke />
-        <Background />
-      </div>
-    );
+      <Router history={history}>
+        <div className="App">
+          <Background />
+          <Route
+            exact
+            path="/"
+            render={props => {
+              return <Horoscope {...props} />;
+            }}
+          />
+
+          <Route
+            exact
+            path="/nasa"
+            render={props => {
+              return <NASA {...props} />;
+            }}
+          />
+
+        </div>
+
+      </Router>
+    )
   }
 }
 
