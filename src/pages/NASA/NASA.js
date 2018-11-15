@@ -3,7 +3,6 @@ import Title from "../../components/Title";
 import Grid from "../../components/Grid";
 import Rocket from "../../components/Rocket";
 import Smoke from "../../components/Rocket/Smoke";
-import Background from "../../components/Background";
 import facts from "../../NASA_facts.json";
 
 

@@ -35,7 +35,7 @@
 
 .signImg:hover {
     box-shadow: 0 0 20px 2px white;
-    transform: translateY(-12px);
+    transform: translateY(-1px);
 }
 
 #sunImg:hover {
@@ -122,9 +122,14 @@
 }
 
 .datepicker-date-display {
-       background-color: #5c6bc0;
-    }
-    
-    .datepicker {
-         width: 22px;
-     }
+    background-color: #5c6bc0;
+}
+
+.datepicker {
+    width: 22px;
+}
+
+.closeHoro {
+    position: absolute;
+    left: 0;
+}
